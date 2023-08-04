@@ -1,0 +1,49 @@
+package wordcounter;
+
+import java.util.Scanner;
+
+public class WordCounters 
+
+{
+	
+    public static void main(String[] args) 
+    
+    {
+    	
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Please Enter a Text :");
+        
+        String input = scanner.nextLine();
+        
+        int wordCount = countWords(input);
+        
+        System.out.println("Total words count :" + wordCount);
+        
+        scanner.close();
+        
+    }
+    
+    public static int countWords(String text) 
+    
+    {
+        char ch[]= new char[text.length()];
+        
+        int count=0;
+
+        for(int i=0;i<text.length();i++) 
+        	
+        {  
+        	
+            ch[i]= text.charAt(i); 
+            
+            if( ((i>0)&&(ch[i]!=' ')&&(ch[i-1]==' ')) || ((ch[0]!=' ')&&(i==0)) )
+            	
+                count++;  
+            
+        }
+
+        return count;
+        
+    }
+}
